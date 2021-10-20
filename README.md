@@ -33,47 +33,47 @@ As usual for technical specifications,
 --
 
 
-A Java application that is capable of managing articles on the stock of a supermarket _shall_ be realized.   
+A Java application that is capable of managing products on the stock of a supermarket _shall_ be realized.   
 
-1. In general, an __article__ _shall_ have
+1. In general, an __product__ _shall_ have
     + a name and  
     + a unique __barcode__ according to EAN-8 (see below). 
 
-1. For each article, its current stock quantity _shall_ be maintained.
+1. For each product, its current stock quantity _shall_ be maintained.
 
-1. It _shall_ only be allowed to add new articles for the supermarket, if the barcode of the given article is valid and there does not exist another article with the same barcode – both cases _shall_ be treated as errors. 
+1. It _shall_ only be allowed to add new products for the supermarket, if the barcode of the given product is valid and there does not exist another product with the same barcode – both cases _shall_ be treated as errors. 
 
-1. Articles _may_ be removed from the assortment, but only in case the stock quantity is zero. They _must not_ be removable if they are still in stock.
+1. Products _may_ be removed from the assortment, but only in case the stock quantity is zero. They _must not_ be removable if they are still in stock.
 
-1. For __food articles__, a list of contained __allergens__ _shall_ be maintained. 
+1. For __food products__, a list of contained __allergens__ _shall_ be maintained. 
     1. Allergens _shall_ be unambiguous throughout the application. 
     1. Name and code of allergens _shall_ be presentable to users.
     1. It _shall not_ be possible to modify the name or code of allergens at run-time.
     1. For allergen types, all 12 allergens which need to be declared according to Austrian law _must_ be handled. 
     1. It _shall_ be possible to add new allergens to a food at any point in time.
     1. It _shall_ be possible to remove allergens from a food at any point in time. 
-    1. Further, it _shall_ be possible to prove, if a given food article contains any allergen from a given list of allergens. Example: Does an article contain the allergens milk, egg, and peanuts?
+    1. Further, it _shall_ be possible to prove, if a given food product contains any allergen from a given list of allergens. Example: Does an product contain the allergens milk, egg, and peanuts?
 
-1. For __non-food articles__, it _shall_ be possible to store a list of customer __reviews__:
+1. For __non-food products__, it _shall_ be possible to store a list of customer __reviews__:
     1. Each review _shall_ have a __star rating__ (from 1 to 5) as well as a review text and a date. 
     1. A star rating of zero _shall_ mean 'no rating' – in this case only a review text is available. 
     1. The list of reviews shall be sorted by date – newest on top (first). 
     1. It _shall_ be possible to add reviews 
     1. It _must not_ be possible to delete reviews. 
-    1. A summary rating _shall_ be maintained for a non-food article collected over all its review ratings. 
+    1. A summary rating _shall_ be maintained for a non-food product collected over all its review ratings. 
     1. It _shall_ be possible to ask for all reviews with a given minimum star rating (e.g. 3 stars or more). 
 
-1. Your __application__ _shall_ be able to create a list of all articles sorted by article name. 
+1. Your __application__ _shall_ be able to create a list of all products sorted by product name. 
 
-1. It _shall_ be possible to retrieve a list of all articles with a stock quantity below a given limit, sorted by stock quantity descending. 
+1. It _shall_ be possible to retrieve a list of all products with a stock quantity below a given limit, sorted by stock quantity descending. 
 
-1. It _shall_ be possible to query for all food articles which do not contain a given set of allergens.
+1. It _shall_ be possible to query for all food products which do not contain a given set of allergens.
 
 1. Technical requirements: 
     1. The 'application shell' _shall_ be designed as class rather than implementing anything (except instantiating the 'application') in the 'main' function.
     1. There _shall_ exist exactly one instance of the application;
     this instance shall be globally accessible.
-    1. It shall be possible to perform required operations, such as rating, reviewing, listing, or deleting articles interactively via console.
+    1. It shall be possible to perform required operations, such as rating, reviewing, listing, or deleting products interactively via console.
     1. Initial stocks _may_ be read from external sources (e.g. text or JSON files).
 
 ## Calculating the Checksum for EAN Code:
@@ -112,11 +112,11 @@ __Note__ Answer these questions within your SW design specification and argument
 1. Collection for allergens:  
 Which container type is used to store all allergens of a food and why?
 
-1. Collection for articles:  
+1. Collection for products:  
   a. Which container type is used to store this list, and why?  
   b. Discuss whether the following statements are plausible or implausible. Document the outcome of the discussion including the reasons for your decision:
-    + “The number of different articles frequently changes for a supermarket.”
-    + “If the article is identified via a barcode, we have to store duplicates.”  
+    + “The number of different products frequently changes for a supermarket.”
+    + “If the product is identified via a barcode, we have to store duplicates.”  
 
 1. Collection for reviews  
-What are the important questions to be asked when you have to decide the data type to store the reviews of a Non-Food-Article? Ask these questions, agree on answers, document them and decide which Collection type to use.
+What are the important questions to be asked when you have to decide the data type to store the reviews of a Non-Food-Product? Ask these questions, agree on answers, document them and decide which Collection type to use.
